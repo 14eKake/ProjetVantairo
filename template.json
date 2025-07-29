@@ -7,6 +7,11 @@
           "value": 10,
           "max": 10
         },
+        "abilities": {
+          "str": 10,
+          "dex": 10,
+          "int": 10
+        },
         "description": ""
       }
     },
@@ -18,7 +23,9 @@
     "types": ["item"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "damage": "",
+        "weight": 0
       }
     },
     "item": {
