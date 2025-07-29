@@ -1,0 +1,40 @@
+<!--
+  Projet Vantairo Actor Sheet
+
+  This Handlebars template defines a minimal layout for actors. It displays the
+  actor's name, portrait image, a simple health tracker with current and
+  maximum values, and a free-form description field. Tabs are set up in
+  anticipation of future expansion, but for now we provide only a single
+  "Attributes" tab to house these fields.
+-->
+
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header flexrow">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="attributes">Attributes</a>
+  </nav>
+
+  <!-- Body Content -->
+  <section class="sheet-body">
+    <!-- Attributes Tab -->
+    <div class="tab" data-group="primary" data-tab="attributes">
+      <div class="form-group">
+        <label>Health</label>
+        <div class="flexrow">
+          <input type="number" name="system.health.value" value="{{system.health.value}}" />
+          <span class="sep"> / </span>
+          <input type="number" name="system.health.max" value="{{system.health.max}}" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea name="system.description" rows="5">{{system.description}}</textarea>
+      </div>
+    </div>
+  </section>
+</form>

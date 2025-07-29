@@ -1,0 +1,28 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "max": 10
+        },
+        "description": ""
+      }
+    },
+    "character": {
+      "templates": ["base"]
+    }
+  },
+  "Item": {
+    "types": ["item"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"]
+    }
+  }
+}

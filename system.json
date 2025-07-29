@@ -1,0 +1,33 @@
+{
+  "id": "projetvantairo",
+  "title": "Projet Vantairo",
+  "description": "A minimal custom system for Foundry VTT created for the Vantairo project. This system provides basic Actor and Item types with simple sheets as a starting point for further development.",
+  "authors": [
+    {
+      "name": "Kake"
+    }
+  ],
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": 11,
+    "verified": "12"
+  },
+  "esmodules": [
+    "projetvantairo.mjs"
+  ],
+  "styles": [
+    "css/projetvantairo.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "template": "template.json",
+  "url": "https://github.com/username/ProjetVantairo",
+  "manifest": "https://raw.githubusercontent.com/username/ProjetVantairo/main/system.json",
+  "download": "https://github.com/username/ProjetVantairo/archive/refs/heads/main.zip"
+}

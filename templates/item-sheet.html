@@ -1,0 +1,22 @@
+<!--
+  Projet Vantairo Item Sheet
+
+  This template defines a straightforward layout for items. It displays the
+  item's name and image along with a description text area. In future
+  iterations you can extend this template to include additional fields such as
+  damage, weight, or other item-specific attributes.
+-->
+
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header flexrow">
+    <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64" />
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+  </header>
+
+  <section class="sheet-body">
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="system.description" rows="4">{{system.description}}</textarea>
+    </div>
+  </section>
+</form>

@@ -1,0 +1,67 @@
+/*
+ * Projet Vantairo System Stylesheet
+ *
+ * This stylesheet contains some light styling to improve the appearance of
+ * character and item sheets. You are encouraged to modify or extend these
+ * styles as you develop your system further.
+ */
+
+.projetvantairo.sheet.actor, .projetvantairo.sheet.item {
+  font-family: var(--font-primary);
+  background: rgba(245, 245, 245, 0.95);
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 10px;
+  color: #222;
+}
+
+.projetvantairo .sheet-header {
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.projetvantairo .profile-img {
+  height: 64px;
+  width: 64px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.projetvantairo .sheet-body .form-group {
+  margin-bottom: 10px;
+}
+
+.projetvantairo .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.projetvantairo .form-group input[type="number"],
+.projetvantairo .form-group input[type="text"],
+.projetvantairo .form-group textarea {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.projetvantairo .sheet-tabs {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.projetvantairo .sheet-tabs a.item {
+  margin-right: 10px;
+  text-decoration: none;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+
+.projetvantairo .sheet-tabs a.item.active {
+  border-color: #ccc;
+  border-bottom-color: transparent;
+  background: #f0f0f0;
+}
