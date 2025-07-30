@@ -13,6 +13,101 @@
           "int": 10
         },
         "description": ""
+        ,"points": {
+          "hp": 10,
+          "mana": 10,
+          "psy": 0,
+          "mastery": 0,
+          "xp": 0,
+          "presence": 0,
+          "initiative": 0
+        },
+        "skills": {
+          "manaeiques": {
+            "accumulationMana": {"mod": 0, "bonus": 0, "total": 0},
+            "projectionManaeique": {"mod": 0, "bonus": 0, "total": 0},
+            "convoquer": {"mod": 0, "bonus": 0, "total": 0},
+            "dominer": {"mod": 0, "bonus": 0, "total": 0},
+            "lier": {"mod": 0, "bonus": 0, "total": 0},
+            "revoquer": {"mod": 0, "bonus": 0, "total": 0}
+          },
+          "martiales": {
+            "attaqueCac": {"mod": 0, "bonus": 0, "total": 0},
+            "attaqueAD": {"mod": 0, "bonus": 0, "total": 0},
+            "pugilat": {"mod": 0, "bonus": 0, "total": 0},
+            "parade": {"mod": 0, "bonus": 0, "total": 0},
+            "esquive": {"mod": 0, "bonus": 0, "total": 0},
+            "portArmure": {"mod": 0, "bonus": 0, "total": 0}
+          },
+          "resistances": {
+            "physiques": {"mod": 0, "bonus": 0, "total": 0},
+            "maladies": {"mod": 0, "bonus": 0, "total": 0},
+            "poisons": {"mod": 0, "bonus": 0, "total": 0},
+            "manaeique": {"mod": 0, "bonus": 0, "total": 0},
+            "psychiques": {"mod": 0, "bonus": 0, "total": 0}
+          },
+          "psychiques": {
+            "projectionPsychique": {"mod": 0, "bonus": 0, "total": 0}
+          },
+          "secondaires": {
+            "athletiques": {
+              "acrobaties": {"mod": 0, "bonus": 0, "total": 0},
+              "athletisme": {"mod": 0, "bonus": 0, "total": 0},
+              "equitation": {"mod": 0, "bonus": 0, "total": 0},
+              "natation": {"mod": 0, "bonus": 0, "total": 0},
+              "saut": {"mod": 0, "bonus": 0, "total": 0},
+              "course": {"mod": 0, "bonus": 0, "total": 0},
+              "escalade": {"mod": 0, "bonus": 0, "total": 0}
+            },
+            "vitales": {
+              "impassibilite": {"mod": 0, "bonus": 0, "total": 0},
+              "prouesseForce": {"mod": 0, "bonus": 0, "total": 0},
+              "resistanceDouleur": {"mod": 0, "bonus": 0, "total": 0}
+            },
+            "sensorielles": {
+              "observation": {"mod": 0, "bonus": 0, "total": 0},
+              "pistage": {"mod": 0, "bonus": 0, "total": 0},
+              "vigilance": {"mod": 0, "bonus": 0, "total": 0}
+            },
+            "clandestines": {
+              "camouflage": {"mod": 0, "bonus": 0, "total": 0},
+              "crochetage": {"mod": 0, "bonus": 0, "total": 0},
+              "deguisement": {"mod": 0, "bonus": 0, "total": 0},
+              "discretion": {"mod": 0, "bonus": 0, "total": 0},
+              "larcin": {"mod": 0, "bonus": 0, "total": 0},
+              "pieges": {"mod": 0, "bonus": 0, "total": 0},
+              "poisonsSkill": {"mod": 0, "bonus": 0, "total": 0}
+            },
+            "creatives": {
+              "art": {"mod": 0, "bonus": 0, "total": 0},
+              "danse": {"mod": 0, "bonus": 0, "total": 0},
+              "forge": {"mod": 0, "bonus": 0, "total": 0},
+              "habiliteManuelle": {"mod": 0, "bonus": 0, "total": 0},
+              "musique": {"mod": 0, "bonus": 0, "total": 0}
+            },
+            "sociales": {
+              "commandement": {"mod": 0, "bonus": 0, "total": 0},
+              "intimidation": {"mod": 0, "bonus": 0, "total": 0},
+              "persuasion": {"mod": 0, "bonus": 0, "total": 0},
+              "style": {"mod": 0, "bonus": 0, "total": 0},
+              "charme": {"mod": 0, "bonus": 0, "total": 0},
+              "duperie": {"mod": 0, "bonus": 0, "total": 0},
+              "marchandage": {"mod": 0, "bonus": 0, "total": 0}
+            },
+            "intellectuelles": {
+              "animaux": {"mod": 0, "bonus": 0, "total": 0},
+              "estimation": {"mod": 0, "bonus": 0, "total": 0},
+              "evaluationMagique": {"mod": 0, "bonus": 0, "total": 0},
+              "herboristerie": {"mod": 0, "bonus": 0, "total": 0},
+              "histoire": {"mod": 0, "bonus": 0, "total": 0},
+              "medecine": {"mod": 0, "bonus": 0, "total": 0},
+              "memorisation": {"mod": 0, "bonus": 0, "total": 0},
+              "navigation": {"mod": 0, "bonus": 0, "total": 0},
+              "manaeique": {"mod": 0, "bonus": 0, "total": 0},
+              "science": {"mod": 0, "bonus": 0, "total": 0}
+            }
+          }
+        }
       }
     },
     "character": {
