@@ -1,0 +1,330 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <style>
+    :root {
+      --main: #273445;
+      --accent: #7fd6b5;
+      --light: #f9fafc;
+      --gray: #e4e8ed;
+      --radius: 12px;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--gray);
+      color: var(--main);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 32px auto;
+      background: var(--light);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 16px #0002;
+      padding: 32px;
+    }
+    h1, h2, h3 {
+      color: var(--main);
+      margin-top: 0;
+    }
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 18px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      font-size: 1.1em;
+      padding: 12px 24px;
+      cursor: pointer;
+      color: var(--main);
+      border-radius: var(--radius) var(--radius) 0 0;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-bottom: 2px solid var(--main);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Flexible rows and fields */
+    .flexrow { display: flex; gap: 18px; align-items: center; flex-wrap: wrap;}
+    .flexcol { display: flex; flex-direction: column; gap: 10px; }
+    label { min-width: 80px; font-weight: 500; }
+    input, select, textarea {
+      border: 1px solid #c2c8d1;
+      border-radius: 5px;
+      padding: 6px 8px;
+      font-size: 1em;
+      background: #fff;
+      color: var(--main);
+      margin-right: 6px;
+    }
+    input[type="number"] { width: 60px; }
+    textarea { width: 100%; min-height: 38px; resize: vertical; }
+
+    details { margin-bottom: 10px; }
+    details[open] summary { font-weight: 600; color: var(--accent);}
+    summary { cursor: pointer; }
+
+    table { width: 100%; border-collapse: collapse; margin-bottom: 18px;}
+    th, td {
+      border: 1px solid #c2c8d1;
+      padding: 7px;
+      text-align: left;
+      background: #fff;
+    }
+    th { background: var(--accent); color: white; }
+
+    @media (max-width: 700px) {
+      .container { padding: 8px; }
+      .flexrow { flex-direction: column; }
+      .tabs { flex-direction: column; }
+      .tab-btn { width: 100%; text-align: left; }
+    }
+  </style>
+<div class="container">
+  <h1>Fiche de personnage V5</h1>
+  <div class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="identite">Identité</button>
+    <button class="tab-btn" data-tab="caracs">Caractéristiques</button>
+    <button class="tab-btn" data-tab="points">Points</button>
+    <button class="tab-btn" data-tab="competences">Compétences</button>
+    <button class="tab-btn" data-tab="inventaire">Inventaire</button>
+    <button class="tab-btn" data-tab="techniques">Techniques</button>
+    <button class="tab-btn" data-tab="sorts">Sorts</button>
+    <button class="tab-btn" data-tab="talents">Talents</button>
+  </div>
+
+  <!-- Identité -->
+  <div class="tab-content active" id="identite">
+    <h2>Identité</h2>
+    <div class="flexrow">
+      <div class="flexcol" style="flex:2;">
+        <label>Nom</label><input type="text" name="name" value="{{actor.name}}" placeholder="Nom du personnage">
+        <label>Race</label><input type="text" name="system.race" value="{{system.race}}" placeholder="Race">
+        <label>Classe</label><input type="text" name="system.class" value="{{system.class}}" placeholder="Classe">
+      </div>
+      <div class="flexcol" style="flex:1;">
+        <label>Niveau</label><input type="number" name="system.level" value="{{system.level}}" min="1">
+        <label>Rang</label><input type="text" name="system.rank" value="{{system.rank}}">
+        <label>Dons</label><input type="text" name="system.gifts" value="{{system.gifts}}">
+      </div>
+    </div>
+  </div>
+
+  <!-- Caractéristiques -->
+  <div class="tab-content" id="caracs">
+    <h2>Caractéristiques</h2>
+    <table>
+      <tr><th>Caractéristique</th><th>Valeur</th><th>Bonus</th><th>Modif.</th></tr>
+      <tr><td>Force (FOR)</td><td><input type="number" name="system.attributes.for.value" value="{{system.attributes.for.value}}"></td><td><input type="number" name="system.attributes.for.bonus" value="{{system.attributes.for.bonus}}"></td><td><input type="number" name="system.attributes.for.mod" value="{{system.attributes.for.mod}}"></td></tr>
+      <tr><td>Dextérité (DEX)</td><td><input type="number" name="system.attributes.dex.value" value="{{system.attributes.dex.value}}"></td><td><input type="number" name="system.attributes.dex.bonus" value="{{system.attributes.dex.bonus}}"></td><td><input type="number" name="system.attributes.dex.mod" value="{{system.attributes.dex.mod}}"></td></tr>
+      <tr><td>Agilité (AGI)</td><td><input type="number" name="system.attributes.agi.value" value="{{system.attributes.agi.value}}"></td><td><input type="number" name="system.attributes.agi.bonus" value="{{system.attributes.agi.bonus}}"></td><td><input type="number" name="system.attributes.agi.mod" value="{{system.attributes.agi.mod}}"></td></tr>
+      <tr><td>Constitution (CON)</td><td><input type="number" name="system.attributes.con.value" value="{{system.attributes.con.value}}"></td><td><input type="number" name="system.attributes.con.bonus" value="{{system.attributes.con.bonus}}"></td><td><input type="number" name="system.attributes.con.mod" value="{{system.attributes.con.mod}}"></td></tr>
+      <tr><td>Intelligence (INT)</td><td><input type="number" name="system.attributes.int.value" value="{{system.attributes.int.value}}"></td><td><input type="number" name="system.attributes.int.bonus" value="{{system.attributes.int.bonus}}"></td><td><input type="number" name="system.attributes.int.mod" value="{{system.attributes.int.mod}}"></td></tr>
+      <tr><td>Pouvoir (POU)</td><td><input type="number" name="system.attributes.pou.value" value="{{system.attributes.pou.value}}"></td><td><input type="number" name="system.attributes.pou.bonus" value="{{system.attributes.pou.bonus}}"></td><td><input type="number" name="system.attributes.pou.mod" value="{{system.attributes.pou.mod}}"></td></tr>
+      <tr><td>Volonté (VOL)</td><td><input type="number" name="system.attributes.vol.value" value="{{system.attributes.vol.value}}"></td><td><input type="number" name="system.attributes.vol.bonus" value="{{system.attributes.vol.bonus}}"></td><td><input type="number" name="system.attributes.vol.mod" value="{{system.attributes.vol.mod}}"></td></tr>
+      <tr><td>Perception (PER)</td><td><input type="number" name="system.attributes.per.value" value="{{system.attributes.per.value}}"></td><td><input type="number" name="system.attributes.per.bonus" value="{{system.attributes.per.bonus}}"></td><td><input type="number" name="system.attributes.per.mod" value="{{system.attributes.per.mod}}"></td></tr>
+    </table>
+    <h3>Flux</h3>
+    <table>
+      <tr><th>Type</th><th>Base</th><th>Accumulation</th><th>Réserve</th></tr>
+      <tr><td>Force</td><td><input type="number" name="system.flux.for.base" value="{{system.flux.for.base}}"></td><td><input type="number" name="system.flux.for.accum" value="{{system.flux.for.accum}}"></td><td><input type="number" name="system.flux.for.reserve" value="{{system.flux.for.reserve}}"></td></tr>
+      <tr><td>Dextérité</td><td><input type="number" name="system.flux.dex.base" value="{{system.flux.dex.base}}"></td><td><input type="number" name="system.flux.dex.accum" value="{{system.flux.dex.accum}}"></td><td><input type="number" name="system.flux.dex.reserve" value="{{system.flux.dex.reserve}}"></td></tr>
+      <tr><td>Agilité</td><td><input type="number" name="system.flux.agi.base" value="{{system.flux.agi.base}}"></td><td><input type="number" name="system.flux.agi.accum" value="{{system.flux.agi.accum}}"></td><td><input type="number" name="system.flux.agi.reserve" value="{{system.flux.agi.reserve}}"></td></tr>
+      <tr><td>Constitution</td><td><input type="number" name="system.flux.con.base" value="{{system.flux.con.base}}"></td><td><input type="number" name="system.flux.con.accum" value="{{system.flux.con.accum}}"></td><td><input type="number" name="system.flux.con.reserve" value="{{system.flux.con.reserve}}"></td></tr>
+      <tr><td>Pouvoir</td><td><input type="number" name="system.flux.pou.base" value="{{system.flux.pou.base}}"></td><td><input type="number" name="system.flux.pou.accum" value="{{system.flux.pou.accum}}"></td><td><input type="number" name="system.flux.pou.reserve" value="{{system.flux.pou.reserve}}"></td></tr>
+      <tr><td>Volonté</td><td><input type="number" name="system.flux.vol.base" value="{{system.flux.vol.base}}"></td><td><input type="number" name="system.flux.vol.accum" value="{{system.flux.vol.accum}}"></td><td><input type="number" name="system.flux.vol.reserve" value="{{system.flux.vol.reserve}}"></td></tr>
+    </table>
+  </div>
+
+  <!-- Points -->
+  <div class="tab-content" id="points">
+    <h2>Points & Attributs</h2>
+    <div class="flexrow">
+      <div class="flexcol">
+        <label>Points de Vie (PV)</label><input type="number" name="system.hp" value="{{system.hp}}">
+        <label>Points de Mana</label><input type="number" name="system.mana" value="{{system.mana}}">
+        <label>Potentiel Psychique</label><input type="number" name="system.psy" value="{{system.psy}}">
+      </div>
+      <div class="flexcol">
+        <label>Points de Maîtrise</label><input type="number" name="system.mastery" value="{{system.mastery}}">
+        <label>Points d’Expérience</label><input type="number" name="system.xp" value="{{system.xp}}">
+        <label>Présence</label><input type="number" name="system.presence" value="{{system.presence}}">
+        <label>Initiative</label><input type="number" name="system.initiative" value="{{system.initiative}}">
+      </div>
+    </div>
+  </div>
+
+  <!-- Compétences -->
+  <div class="tab-content" id="competences">
+    <h2>Compétences</h2>
+    <details>
+      <summary>Compétences Manaéiques</summary>
+      <table>
+        <tr><th>Nom</th><th>Mod</th><th>Bonus</th><th>Total</th></tr>
+        <tr><td>Accumulation de mana</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Projection Manaéique (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Convoquer (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Dominer (VOL)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Lier (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Révoquer (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+    </details>
+    <details>
+      <summary>Compétences Martiales</summary>
+      <table>
+        <tr><th>Nom</th><th>Mod</th><th>Bonus</th><th>Total</th></tr>
+        <tr><td>Attaque CàC (Dex/For)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Attaque AD (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Pugilat (Dex/For)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Parade (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Esquive (Dex/Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Port d’armure (For)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+    </details>
+    <details>
+      <summary>Résistances</summary>
+      <table>
+        <tr><th>Type</th><th>Mod</th><th>Bonus</th><th>Total</th></tr>
+        <tr><td>Physiques</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Maladies</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Poisons</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Manéique</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Psychiques</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+    </details>
+    <details>
+      <summary>Compétences Psychiques</summary>
+      <table>
+        <tr><th>Nom</th><th>Mod</th><th>Bonus</th><th>Total</th></tr>
+        <tr><td>Projection psychique</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+    </details>
+    <details>
+      <summary>Compétences Secondaires</summary>
+      <h4>Athlétiques</h4>
+      <table>
+        <tr><td>Acrobaties (Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Athlétisme (Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Équitation (Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Natation (Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Saut (For)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Course</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Escalade (Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+      <h4>Vitales</h4>
+      <table>
+        <tr><td>Impassibilité (Vol)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Prouesse de force (For)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Résistance à la douleur (Vol)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+      <h4>Sensorielles</h4>
+      <table>
+        <tr><td>Observation (Per)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Pistage (Per)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Vigilance (Per)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+      <h4>Clandestines</h4>
+      <table>
+        <tr><td>Camouflage (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Crochetage (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Déguisement (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Discrétion (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Larcin (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Pièges (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Poisons (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+      <h4>Créatives</h4>
+      <table>
+        <tr><td>Art (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Danse (Agi)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Forge (Dex/For)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Habilité manuelle (Dex)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Musique (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+      <h4>Sociales</h4>
+      <table>
+        <tr><td>Commandement (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Intimidation (Vol)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Persuasion (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Style (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Charme (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Duperie (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Marchandage (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+      <h4>Intellectuelles</h4>
+      <table>
+        <tr><td>Animaux (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Estimation (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Évaluation magique (Pou)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Herboristerie (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Histoire (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Médecine (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Mémorisation (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Navigation (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Manaéique (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+        <tr><td>Science (Int)</td><td><input type="number"></td><td><input type="number"></td><td><input type="number"></td></tr>
+      </table>
+    </details>
+  </div>
+
+  <!-- Inventaire -->
+  <div class="tab-content" id="inventaire">
+    <h2>Inventaire</h2>
+    <table>
+      <tr><th>Nom</th><th>Poids</th><th>Prix</th><th>Description</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <!-- Ajouter des lignes selon besoin -->
+    </table>
+  </div>
+
+  <!-- Techniques -->
+  <div class="tab-content" id="techniques">
+    <h2>Techniques Martiales</h2>
+    <table>
+      <tr><th>Nom</th><th>Niveau/DI</th><th>Coûts</th><th>Description</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <!-- Sorts -->
+  <div class="tab-content" id="sorts">
+    <h2>Sorts Manaéiques</h2>
+    <table>
+      <tr><th>Nom</th><th>Niveau</th><th>Coûts</th><th>Description</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+    </table>
+  </div>
+
+  <!-- Talents -->
+  <div class="tab-content" id="talents">
+    <h2>Talents Génériques</h2>
+    <table>
+      <tr><th>Nom</th><th>Niveau</th><th>Coûts</th><th>Description</th></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+      <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+    </table>
+  </div>
+</div>
+<script>
+  // Onglets simples
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</form>

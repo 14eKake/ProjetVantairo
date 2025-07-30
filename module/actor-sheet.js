@@ -16,7 +16,7 @@ export class ProjetVantairoActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["projetvantairo", "sheet", "actor"],
-      template: "systems/projetvantairo/templates/actor-sheet.html",
+      template: "systems/projetvantairo/templates/vantairo-actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [
